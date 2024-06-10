@@ -1,6 +1,5 @@
 # Video-Games-Analysis-using-AWS-services
 Enhancing Video Game Analytics with AWS: Driving Insights and Innovation.
-Project by : Pondeepan Raj.
 
 ## Introduction
 Video games are a billion-dollar business and have been for many years since the first games emerged in the 1970s. During the COVID-19 pandemic, gaming has become entertainment and time filling for many people. Especially, the Nintendo games, Playstation games, and PC games. As a result,  there is an increased interest in gaming and video game sales have increased due to COVID-19-related lockdown measures. In this project, we are going to analyze the sales trends from more than 16,500 popular video games.
@@ -33,6 +32,7 @@ Repoistory contain:
 * **AWS implementation**
   * *AWS S3 & ATHENA Instruction.docx*
   * *AWS POLLY Speech Notes.docx*
- 
+                                                            
  ---/END/---
+ 
 
