@@ -30,16 +30,9 @@ Our repoistory contain:
   * *Question 3-4.csv*
   * *Question 4.csv*
   * *VG_Sales_Python_Visualization.ipynb* -- python file
-* **Demo**
-  * *Demo Instruction.docx*
-  * *Demo Speech Notes.docx*
-* **CC Group 8 Final Project Presentation.pptx**
-  * Presentation of final project
-
-## How It Works
- 1. Look at the powerpoint **CC Group 8 Final Project Presentation.pptx**.
- 2. If you have any issue to play Demo video, click [Here](https://youtu.be/x8gHLyS3zSw).
- 3. Check python code click [Github Pages](https://weiruiliu.github.io/AWS-Services-Analysis-Video-Games-Sales/VG_Sales_Python_Visualization.html).
-
+* **AWS implementation**
+  * *AWS S3 & ATHENA Instruction.docx*
+  * *AWS POLLY Speech Notes.docx*
+ 
  ---/END/---
 
