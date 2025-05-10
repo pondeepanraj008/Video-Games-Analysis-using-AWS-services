@@ -1,0 +1,137 @@
+# Import required libraries
+import pandas as pd
+import numpy as np
+import plotly.graph_objects as go  # Interactive Data Analysis with Plotly
+
+# Question 1: What are the top 50 games currently making the most sales globally?
+top_50 = pd.read_csv("D:\\PROJECTS\\AWS-Services-Analysis-Video-Games-Sales-main\\Athena Query Result and Python Visualization Code\\Question 1.csv")
+print(top_50)
+
+# Question 2: Are there any games in the top 50 with release years older than 2000 that are still making high global sales? What are they?
+Top_50_before_2000 = pd.read_csv("D:\\PROJECTS\\AWS-Services-Analysis-Video-Games-Sales-main\\Athena Query Result and Python Visualization Code\\Question 2.csv")
+print(Top_50_before_2000)
+
+# Question 3: What is the most popular publisher in each regional sale?
+
+# North America
+Top_10_NA_publisher = pd.read_csv("D:\\PROJECTS\\AWS-Services-Analysis-Video-Games-Sales-main\\Athena Query Result and Python Visualization Code\\Question 3-1.csv")
+# Create bar chart for North America
+bar_NA = go.Bar(
+    x=Top_10_NA_publisher['publisher'],
+    y=Top_10_NA_publisher['total_na_sales_in_millions'],
+    text=Top_10_NA_publisher['total_na_sales_in_millions'],
+    name="Total North America Sales"
+)
+bar = [bar_NA]
+layout = go.Layout(
+    height=600,
+    width=800,
+    title=go.layout.Title(text="Top 10 Most Popular Publishers in North America Sales"),
+    xaxis=dict(title="Publisher"),
+    yaxis=dict(title="Total North America Sales (in Millions)", categoryorder="total ascending")
+)
+fig = go.Figure(data=bar, layout=layout)
+fig.update_traces(
+    hovertemplate='<b>%{label}:</b><br>Total North America Sales: %{text: $.1f} (in millions)',
+    textposition='outside'
+)
+fig.show()
+
+# Europe
+Top_10_EU_publisher = pd.read_csv("D:\\PROJECTS\\AWS-Services-Analysis-Video-Games-Sales-main\\Athena Query Result and Python Visualization Code\\Question 3-2.csv")
+# Create bar chart for Europe
+bar_EU = go.Bar(
+    x=Top_10_EU_publisher['publisher'],
+    y=Top_10_EU_publisher['total_eu_sales_in_millions'],
+    text=Top_10_EU_publisher['total_eu_sales_in_millions'],
+    name="Total Europe Sales",
+    marker_color="lightsalmon"
+)
+bar = [bar_EU]
+layout = go.Layout(
+    height=600,
+    width=800,
+    title=go.layout.Title(text="Top 10 Most Popular Publishers in Europe Sales"),
+    xaxis=dict(title="Publisher"),
+    yaxis=dict(title="Total Europe Sales (in Millions)", categoryorder="total ascending")
+)
+fig = go.Figure(data=bar, layout=layout)
+fig.update_traces(
+    hovertemplate='<b>%{label}:</b><br>Total Europe Sales: %{text: $.1f} (in millions)',
+    textposition='outside'
+)
+fig.show()
+
+# Japan
+Top_10_JP_publisher = pd.read_csv("D:\\PROJECTS\\AWS-Services-Analysis-Video-Games-Sales-main\\Athena Query Result and Python Visualization Code\\Question 3-3.csv")
+# Create bar chart for Japan
+bar_JP = go.Bar(
+    x=Top_10_JP_publisher['publisher'],
+    y=Top_10_JP_publisher['total_jp_sales_in_millions'],
+    text=Top_10_JP_publisher['total_jp_sales_in_millions'],
+    name="Total Japan Sales",
+    marker_color="orange"
+)
+bar = [bar_JP]
+layout = go.Layout(
+    height=600,
+    width=800,
+    title=go.layout.Title(text="Top 10 Most Popular Publishers in Japan Sales"),
+    xaxis=dict(title="Publisher"),
+    yaxis=dict(title="Total Japan Sales (in Millions)", categoryorder="total ascending")
+)
+fig = go.Figure(data=bar, layout=layout)
+fig.update_traces(
+    hovertemplate='<b>%{label}:</b><br>Total Japan Sales: %{text: $.1f} (in millions)',
+    textposition='outside'
+)
+fig.show()
+
+# Other
+Top_10_Other_publisher = pd.read_csv("D:\\PROJECTS\\AWS-Services-Analysis-Video-Games-Sales-main\\Athena Query Result and Python Visualization Code\\Question 3-4.csv")
+# Create bar chart for Other regions
+bar_Other = go.Bar(
+    x=Top_10_Other_publisher['publisher'],
+    y=Top_10_Other_publisher['total_other_sales_in_millions'],
+    text=Top_10_Other_publisher['total_other_sales_in_millions'],
+    name="Total Other Sales",
+    marker_color="limegreen"
+)
+bar = [bar_Other]
+layout = go.Layout(
+    height=600,
+    width=800,
+    title=go.layout.Title(text="Top 10 Most Popular Publishers in Other Sales"),
+    xaxis=dict(title="Publisher"),
+    yaxis=dict(title="Total Other Sales (in Millions)", categoryorder="total ascending")
+)
+fig = go.Figure(data=bar, layout=layout)
+fig.update_traces(
+    hovertemplate='<b>%{label}:</b><br>Total Other Sales: %{text: $.1f} (in millions)',
+    textposition='outside'
+)
+fig.show()
+
+# Question 4: Which type of game is the highest in terms of global sales?
+genre_data = pd.read_csv("D:\\PROJECTS\\AWS-Services-Analysis-Video-Games-Sales-main\\Athena Query Result and Python Visualization Code\\Question 4.csv")
+# Create pie chart for genres
+pie_genre = go.Pie(
+    labels=genre_data['genre'],
+    values=genre_data['total_global_sales'],
+    text=genre_data['total_global_sales'],
+    name='Genre'
+)
+d = [pie_genre]
+layout = go.Layout(
+    height=600,
+    width=900,
+    title=go.layout.Title(text='The Highest Global Sales by Genre'),
+    legend=dict(title="Type:", yanchor="top", y=1.0, xanchor="left", x=-0.7)
+)
+fig = go.Figure(data=d, layout=layout)
+fig.update_traces(
+    hovertemplate='<b>%{label}:</b><br>Global Sales: %{text: $.1f} (in millions)',
+    texttemplate='<b>%{label}:</b> %{percent} (%{text:$.1f})',
+    textposition='outside'
+)
+fig.show()
